@@ -1,0 +1,18 @@
+
+1. 
+<s:iterator id="mapkey" status="state" value="ediStringList">
+  <s:iterator value="#mapkey" status="status" id="mapStr">
+		<s:hidden name="ohrList[%{#state.index}].ohrId" theme="simple">
+			<s:param name="value">
+      //ohrList[index].ohrId是返回给服务器的所以不要replaceAll（显示用的，hidden不需要显示）
+				<s:property value="#mapStr.key.replaceAll(' ', '&nbsp;')" escape="false" />  
+			</s:param>
+	  </s:hidden>
+	<s:iterator value="#mapStr.value" id="strList">
+	<tr>
+		<td>
+			<s:property value="#strList" />
+		</td>
+	</tr>
+</s:iterator>
+						
